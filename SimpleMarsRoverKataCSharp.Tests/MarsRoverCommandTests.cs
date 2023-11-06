@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit.Sdk;
-
-namespace SimpleMarsRoverKataCSharp.Tests
+﻿namespace SimpleMarsRoverKataCSharp.Tests
 {
     public class MarsRoverCommandTests
     {
@@ -35,6 +27,7 @@ namespace SimpleMarsRoverKataCSharp.Tests
 
             Assert.Equal('L', nextStep);
             Assert.Equal(stepList, command.GetSteps());
+            Assert.Equal(2, command.Count());
         }
 
         [Fact]
@@ -42,7 +35,7 @@ namespace SimpleMarsRoverKataCSharp.Tests
         {
             string steps = "BCS";
 
-           Assert.Throws<ArgumentException>(() => new MarsRoverCommand(steps));
+            Assert.Throws<ArgumentException>(() => new MarsRoverCommand(steps));
         }
     }
 }

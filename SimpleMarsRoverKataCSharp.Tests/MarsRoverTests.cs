@@ -9,6 +9,8 @@ namespace SimpleMarsRoverKataCSharp.Tests
         [Theory]
         [InlineData("0:0:N", "")]
         [InlineData("0:0:W", "L")]
+        [InlineData("0:0:E", "R")]
+        [InlineData("0:0:S", "LRRRRL")]
         public void Execute_ShouldExecuteTheReceivedCommands(string output, string command)
         {
             Direction.Direction initialDirection = new North();

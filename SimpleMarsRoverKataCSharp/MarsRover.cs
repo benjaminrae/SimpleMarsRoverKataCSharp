@@ -11,16 +11,26 @@
 
         public void Execute(MarsRoverCommand command)
         {
-            foreach (int step in Enumerable.Range(1, command.Count()))
+            if (command.Count() == 0)
             {
-                if (command.NextStep() == 'L')
-                {
-                    this.TurnLeft();
-                }
-
-
+                return;
             }
 
+            char step = command.NextStep();
+
+            if (step == 'L')
+            {
+                this.TurnLeft();
+                this.Execute(command);
+            }
+
+            if (step == 'R')
+            {
+                this.TurnRight();
+                this.Execute(command);
+            }
+
+            this.Execute(command);
         }
 
         public string SituationReport(Reporter stringReporter)
