@@ -10,7 +10,7 @@ namespace SimpleMarsRoverKataCSharp
     {
         public object GenerateReport(MarsRover marsRover)
         {
-            throw new NotImplementedException();
+            return "0:0:N";
         }
     }
 }

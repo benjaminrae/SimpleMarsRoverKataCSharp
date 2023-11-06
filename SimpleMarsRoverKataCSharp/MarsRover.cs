@@ -4,12 +4,12 @@
     {
         public void Execute(MarsRoverCommand command)
         {
-            throw new NotImplementedException();
+            
         }
 
-        public string SituationReport(object stringReporter)
+        public string SituationReport(Reporter stringReporter)
         {
-            throw new NotImplementedException();
+            return (string)stringReporter.GenerateReport(this);
         }
     }
 }
