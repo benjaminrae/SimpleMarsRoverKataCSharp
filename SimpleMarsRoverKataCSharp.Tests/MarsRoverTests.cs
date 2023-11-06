@@ -6,6 +6,7 @@ namespace SimpleMarsRoverKataCSharp.Tests
 
         [Theory]
         [InlineData("0:0:N", "")]
+        [InlineData("0:0:W", "L")]
         public void Execute_ShouldExecuteTheReceivedCommands(string output, string command)
         {
             MarsRover marsRover = new MarsRover();
