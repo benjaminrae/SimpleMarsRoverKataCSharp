@@ -8,6 +8,11 @@ namespace SimpleMarsRoverKataCSharp.Direction
 {
     public class South : Direction
     {
+        public string Key()
+        {
+            return "S";
+        }
+
         public Direction Left()
         {
             return new East();

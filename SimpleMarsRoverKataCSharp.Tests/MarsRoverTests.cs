@@ -1,3 +1,5 @@
+using SimpleMarsRoverKataCSharp.Direction;
+
 namespace SimpleMarsRoverKataCSharp.Tests
 {
     public class MarsRoverTests
@@ -9,7 +11,8 @@ namespace SimpleMarsRoverKataCSharp.Tests
         [InlineData("0:0:W", "L")]
         public void Execute_ShouldExecuteTheReceivedCommands(string output, string command)
         {
-            MarsRover marsRover = new MarsRover();
+            Direction.Direction initialDirection = new North();
+            MarsRover marsRover = new MarsRover(initialDirection);
             Reporter reporter = new TextReporter();
 
             marsRover.Execute(new MarsRoverCommand(command));

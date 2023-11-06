@@ -10,5 +10,6 @@ namespace SimpleMarsRoverKataCSharp.Direction
     {
         Direction Left();
         Direction Right();
+        string Key();
     }
 }

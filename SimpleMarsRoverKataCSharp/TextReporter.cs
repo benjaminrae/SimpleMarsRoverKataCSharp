@@ -10,7 +10,9 @@ namespace SimpleMarsRoverKataCSharp
     {
         public object GenerateReport(MarsRover marsRover)
         {
-            return "0:0:N";
+            Direction.Direction direction = marsRover.Facing();
+
+            return $"0:0:{direction.Key()}";
         }
     }
 }
