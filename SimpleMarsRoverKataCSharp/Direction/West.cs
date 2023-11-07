@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace SimpleMarsRoverKataCSharp.Direction
 
         public Coordinates MovementOffset()
         {
-            throw new NotImplementedException();
+            return new Coordinates(-1, 0);
         }
 
         public Direction Right()

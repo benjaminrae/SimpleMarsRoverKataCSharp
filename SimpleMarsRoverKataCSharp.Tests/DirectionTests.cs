@@ -1,8 +1,44 @@
-﻿using SimpleMarsRoverKataCSharp.Direction;
-using System.Collections;
+﻿using System.Collections;
+using SimpleMarsRoverKataCSharp.Direction;
 
 namespace SimpleMarsRoverKataCSharp.Tests
 {
+
+    public class DirectionTests
+    {
+        Direction.Direction north = new North();
+
+        [Theory]
+        [ClassData(typeof(LeftTestDataGenerator))]
+        public void Left_ReturnsTheCorrectDirection(Direction.Direction current, Direction.Direction result)
+        {
+
+            Direction.Direction leftFromCurrent = current.Left();
+
+            Assert.Equivalent(result, leftFromCurrent);
+        }
+
+        [Theory]
+        [ClassData(typeof(RightTestDataGenerator))]
+        public void Right_ReturnsTheCorrectDirection(Direction.Direction current, Direction.Direction result)
+        {
+            Direction.Direction rightFromCurrent = current.Right();
+
+            Assert.Equivalent(result, rightFromCurrent);
+
+        }
+
+        [Theory]
+        [ClassData(typeof(MovementOffsetDataGenerator))]
+        public void MovementOffset_ReturnsTheCorrectCoordinates(Direction.Direction direction, Coordinates offset)
+        {
+            Coordinates resultOffset = direction.MovementOffset();
+
+            Assert.Equivalent(offset, resultOffset);
+        }
+
+    }
+
     public class LeftTestDataGenerator : IEnumerable<object[]>
     {
         private readonly List<object[]> _data = new List<object[]>
@@ -37,29 +73,19 @@ namespace SimpleMarsRoverKataCSharp.Tests
 
     }
 
-    public class DirectionTests
+
+    public class MovementOffsetDataGenerator : IEnumerable<object[]>
     {
-        Direction.Direction north = new North();
-
-        [Theory]
-        [ClassData(typeof(LeftTestDataGenerator))]
-        public void Left_ReturnsTheCorrectDirection(Direction.Direction current, Direction.Direction result)
+        private readonly List<object[]> _data = new List<object[]>
         {
+            new object[] {new North(), new Coordinates(0, 1)},
+            new object[] {new East(), new Coordinates(1, 0)},
+            new object[] {new South(), new Coordinates(0, -1)},
+            new object[] {new West(), new Coordinates(-1, 0)}
+        };
 
-            Direction.Direction leftFromCurrent = current.Left();
+        public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
 
-            Assert.Equivalent(result, leftFromCurrent);
-        }
-
-        [Theory]
-        [ClassData(typeof(RightTestDataGenerator))]
-        public void Right_ReturnsTheCorrectDirection(Direction.Direction current, Direction.Direction result)
-        {
-            Direction.Direction rightFromCurrent = current.Right();
-
-            Assert.Equivalent(result, rightFromCurrent);
-
-        }
-
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

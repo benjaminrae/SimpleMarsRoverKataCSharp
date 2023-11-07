@@ -22,5 +22,10 @@ namespace SimpleMarsRoverKataCSharp.Direction
         {
             return "E";
         }
+
+        public Coordinates MovementOffset()
+        {
+            return new Coordinates(1, 0);
+        }
     }
 }

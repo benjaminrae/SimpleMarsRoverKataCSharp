@@ -18,6 +18,11 @@ namespace SimpleMarsRoverKataCSharp.Direction
             return new West();
         }
 
+        public Coordinates MovementOffset()
+        {
+            return new Coordinates(0, 1);
+        }
+
         public Direction Right()
         {
             return new East();

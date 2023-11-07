@@ -60,5 +60,10 @@
             return this.position;
         }
 
+        public void MoveForward()
+        {
+
+        }
+
     }
 }
