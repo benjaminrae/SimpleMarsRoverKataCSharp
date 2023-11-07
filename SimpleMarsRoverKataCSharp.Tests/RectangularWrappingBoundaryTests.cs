@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleMarsRoverKataCSharp.Tests
 {
-    public class BoundaryTests
+    public class RectangularWrappingBoundaryTests
     {
         [Fact]
         public void RectangularWrappingBoundary_ShouldTellIfCoordinatesAreOutOfBounds()
@@ -22,15 +22,15 @@ namespace SimpleMarsRoverKataCSharp.Tests
         }
 
         [Fact]
-        public void Wrap_ShouldWrapOutOfBoundsCoordinates()
+        public void HandleOutOfBounds_ShouldWrapOutOfBoundsCoordinates()
         {
             Coordinates bottomLeft = new Coordinates(0, 0);
             Coordinates topRight = new Coordinates(3, 3);
             Coordinates outOfBounds = new Coordinates(-1, 4);
             Coordinates expectedWrap = new Coordinates(3, 0);
-            WrappingBoundary boundary = new RectangularWrappingBoundary(bottomLeft, topRight);
+            Boundary boundary = new RectangularWrappingBoundary(bottomLeft, topRight);
 
-            Coordinates wrappedCoordinates = boundary.Wrap(outOfBounds);
+            Coordinates wrappedCoordinates = boundary.HandleOutOfBounds(outOfBounds);
 
             Assert.Equal(expectedWrap.GetX(), wrappedCoordinates.GetX());
             Assert.Equal(expectedWrap.GetY(), wrappedCoordinates.GetY());

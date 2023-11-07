@@ -10,14 +10,10 @@ namespace SimpleMarsRoverKataCSharp
     public interface Boundary
     {
         bool IsOutOfBounds(Coordinates coordinates);
+        Coordinates HandleOutOfBounds(Coordinates coordinates);
     }
 
-    public interface WrappingBoundary : Boundary
-    {
-        Coordinates Wrap(Coordinates coordinates); 
-    }
-
-    public class RectangularWrappingBoundary : WrappingBoundary
+    public class RectangularWrappingBoundary : Boundary
     {
         private int upperX;
         private int lowerX;
@@ -50,7 +46,7 @@ namespace SimpleMarsRoverKataCSharp
         }
 
 
-        public Coordinates Wrap(Coordinates coordinates)
+        public Coordinates HandleOutOfBounds(Coordinates coordinates)
         {
             int xDifference = this.CalculateXDifference(coordinates.GetX());
             int yDifference = this.CalculateYDifference(coordinates.GetY());
