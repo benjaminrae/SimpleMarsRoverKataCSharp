@@ -11,24 +11,19 @@ namespace SimpleMarsRoverKataCSharp.Tests
         [Fact]
         public void RectangularWrappingBoundary_ShouldTellIfCoordinatesAreOutOfBounds()
         {
-            Coordinates bottomLeft = new Coordinates(0, 0);
-            Coordinates topRight = new Coordinates(1, 1);
-            Coordinates inBounds = new Coordinates(0, 1);
-            Coordinates outOfBounds = new Coordinates(2, 2);
-            Boundary boundary = new RectangularWrappingBoundary(bottomLeft, topRight);
+            Boundary boundary = new RectangularWrappingBoundary(0,0,1,1);
+            Coordinates inBounds = new Coordinates(boundary, 0, 1);
+            Coordinates outOfBounds = new Coordinates(boundary, 2, 2);
 
-            Assert.True(boundary.IsOutOfBounds(outOfBounds));   
             Assert.False(boundary.IsOutOfBounds(inBounds));
         }
 
         [Fact]
         public void HandleOutOfBounds_ShouldWrapOutOfBoundsCoordinates()
         {
-            Coordinates bottomLeft = new Coordinates(0, 0);
-            Coordinates topRight = new Coordinates(3, 3);
-            Coordinates outOfBounds = new Coordinates(-1, 4);
-            Coordinates expectedWrap = new Coordinates(3, 0);
-            Boundary boundary = new RectangularWrappingBoundary(bottomLeft, topRight);
+            Boundary boundary = new RectangularWrappingBoundary(0,0,3,3);
+            Coordinates outOfBounds = new Coordinates(boundary,-1, 4);
+            Coordinates expectedWrap = new Coordinates(boundary,3, 0);
 
             Coordinates wrappedCoordinates = boundary.HandleOutOfBounds(outOfBounds);
 

@@ -18,9 +18,9 @@ namespace SimpleMarsRoverKataCSharp.Direction
             return new West();
         }
 
-        public Coordinates MovementOffset()
+        public Movement MovementOffset()
         {
-            return new Coordinates(0, 1);
+            return new Movement(0, 1);
         }
 
         public Direction Right()

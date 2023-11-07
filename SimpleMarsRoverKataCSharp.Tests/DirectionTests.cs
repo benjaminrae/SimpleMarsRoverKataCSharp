@@ -30,12 +30,12 @@ namespace SimpleMarsRoverKataCSharp.Tests
 
         [Theory]
         [ClassData(typeof(MovementOffsetDataGenerator))]
-        public void MovementOffset_ReturnsTheCorrectCoordinates(Direction.Direction direction, Coordinates offset)
+        public void MovementOffset_ReturnsTheCorrectCoordinates(Direction.Direction direction, Movement offset)
         {
-            Coordinates resultOffset = direction.MovementOffset();
+            Movement resultOffset = direction.MovementOffset();
 
-            Assert.Equal(offset.GetY(), resultOffset.GetY());
-            Assert.Equal(offset.GetX(), resultOffset.GetX());
+            Assert.Equal(offset.YChange(), resultOffset.YChange());
+            Assert.Equal(offset.XChange(), resultOffset.XChange());
         }
 
     }
@@ -79,10 +79,10 @@ namespace SimpleMarsRoverKataCSharp.Tests
     {
         private readonly List<object[]> _data = new List<object[]>
         {
-            new object[] {new North(), new Coordinates(0, 1)},
-            new object[] {new East(), new Coordinates(1, 0)},
-            new object[] {new South(), new Coordinates(0, -1)},
-            new object[] {new West(), new Coordinates(-1, 0)}
+            new object[] {new North(), new Movement(0, 1)},
+            new object[] {new East(), new Movement(1, 0)},
+            new object[] {new South(), new Movement(0, -1)},
+            new object[] {new West(), new Movement(-1, 0)}
         };
 
         public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();

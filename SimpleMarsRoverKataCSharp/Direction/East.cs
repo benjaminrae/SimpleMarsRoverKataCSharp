@@ -23,9 +23,9 @@ namespace SimpleMarsRoverKataCSharp.Direction
             return "E";
         }
 
-        public Coordinates MovementOffset()
+        public Movement MovementOffset()
         {
-            return new Coordinates(1, 0);
+            return new Movement(1, 0);
         }
     }
 }

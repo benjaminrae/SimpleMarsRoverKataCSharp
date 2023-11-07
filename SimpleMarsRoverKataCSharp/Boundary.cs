@@ -20,11 +20,11 @@ namespace SimpleMarsRoverKataCSharp
         private int upperY;
         private int lowerY;
 
-        public RectangularWrappingBoundary(Coordinates bottomLeft, Coordinates topRight) {
-            this.upperY = topRight.GetY();
-            this.lowerY = bottomLeft.GetY();
-            this.upperX = topRight.GetX();
-            this.lowerX = bottomLeft.GetX();
+        public RectangularWrappingBoundary(int lowerX, int lowerY, int upperX, int upperY) {
+            this.upperY = upperY;
+            this.lowerY = lowerY;
+            this.upperX = upperX;
+            this.lowerX = lowerX;
         }
 
         public bool IsOutOfBounds(Coordinates coordinates)
@@ -51,7 +51,7 @@ namespace SimpleMarsRoverKataCSharp
             int xDifference = this.CalculateXDifference(coordinates.GetX());
             int yDifference = this.CalculateYDifference(coordinates.GetY());
 
-            return coordinates.Combine(new Coordinates(xDifference, yDifference));
+            return coordinates.Move(new Movement(xDifference, yDifference));
         }
 
         private int CalculateXDifference(int x)

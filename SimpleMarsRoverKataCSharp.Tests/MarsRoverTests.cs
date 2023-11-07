@@ -4,7 +4,7 @@ namespace SimpleMarsRoverKataCSharp.Tests
 {
     public class MarsRoverTests
     {
-        
+
 
         [Theory]
         [InlineData("0:0:N", "")]
@@ -15,8 +15,9 @@ namespace SimpleMarsRoverKataCSharp.Tests
         [InlineData("2:2:N", "RMLMRMLM")]
         public void Execute_ShouldExecuteTheReceivedCommands(string output, string command)
         {
+            Boundary boundary = new RectangularWrappingBoundary(0, 0, 5, 5);
             Direction.Direction initialDirection = new North();
-            Coordinates initialPosition = new Coordinates();
+            Coordinates initialPosition = new Coordinates(boundary, 0, 0);
             MarsRover marsRover = new MarsRover(initialDirection, initialPosition);
             Reporter reporter = new TextReporter();
 

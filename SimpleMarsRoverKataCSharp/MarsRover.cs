@@ -68,7 +68,7 @@
 
         public void MoveForward()
         {
-            this.position = this.position.Combine(this.direction.MovementOffset());
+            this.position = this.position.Move(this.direction.MovementOffset());
         }
 
     }
