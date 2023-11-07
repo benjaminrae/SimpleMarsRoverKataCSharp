@@ -11,8 +11,10 @@ namespace SimpleMarsRoverKataCSharp
         public object GenerateReport(MarsRover marsRover)
         {
             Direction.Direction direction = marsRover.Facing();
+            int x = marsRover.Position().GetX();
+            int y = marsRover.Position().GetY();
 
-            return $"0:0:{direction.Key()}";
+            return $"{x}:{y}:{direction.Key()}";
         }
     }
 }

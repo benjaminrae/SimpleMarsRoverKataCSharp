@@ -14,7 +14,8 @@ namespace SimpleMarsRoverKataCSharp.Tests
         public void Execute_ShouldExecuteTheReceivedCommands(string output, string command)
         {
             Direction.Direction initialDirection = new North();
-            MarsRover marsRover = new MarsRover(initialDirection);
+            Coordinates initialPosition = new Coordinates();
+            MarsRover marsRover = new MarsRover(initialDirection, initialPosition);
             Reporter reporter = new TextReporter();
 
             marsRover.Execute(new MarsRoverCommand(command));

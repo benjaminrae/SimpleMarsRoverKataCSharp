@@ -2,11 +2,13 @@
 {
     public class MarsRover
     {
-        Direction.Direction direction;
+        private Direction.Direction direction;
+        private Coordinates position;
 
-        public MarsRover(Direction.Direction initialDirection)
+        public MarsRover(Direction.Direction initialDirection, Coordinates initialPosition)
         {
             this.direction = initialDirection;
+            this.position = initialPosition;
         }
 
         public void Execute(MarsRoverCommand command)
@@ -51,6 +53,11 @@
         public void TurnRight()
         {
             this.direction = this.direction.Right();
+        }
+
+        public Coordinates Position()
+        {
+            return this.position;
         }
 
     }
