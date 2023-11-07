@@ -20,5 +20,10 @@
         {
             return this.y;
         }
+
+        public Coordinates Combine(Coordinates other)
+        {
+            return new Coordinates(this.x + other.GetX(), this.y + other.GetY());
+        }
     }
 }
