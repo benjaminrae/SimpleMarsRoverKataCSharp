@@ -32,6 +32,12 @@
                 this.Execute(command);
             }
 
+            if (step == 'M')
+            {
+                this.MoveForward();
+                this.Execute(command);
+            }
+
             this.Execute(command);
         }
 
@@ -62,7 +68,7 @@
 
         public void MoveForward()
         {
-
+            this.position = this.position.Combine(this.direction.MovementOffset());
         }
 
     }
