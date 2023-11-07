@@ -13,6 +13,7 @@ namespace SimpleMarsRoverKataCSharp.Tests
         [InlineData("0:0:S", "LRRRRL")]
         [InlineData("0:1:N", "M")]
         [InlineData("2:2:N", "RMLMRMLM")]
+        [InlineData("0:0:N", "MMMMMM")]
         public void Execute_ShouldExecuteTheReceivedCommands(string output, string command)
         {
             Boundary boundary = new RectangularWrappingBoundary(0, 0, 5, 5);
