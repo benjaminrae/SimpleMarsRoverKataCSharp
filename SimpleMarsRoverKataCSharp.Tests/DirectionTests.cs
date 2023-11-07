@@ -15,7 +15,7 @@ namespace SimpleMarsRoverKataCSharp.Tests
 
             Direction.Direction leftFromCurrent = current.Left();
 
-            Assert.Equivalent(result, leftFromCurrent);
+            Assert.Equal(result.Key(), leftFromCurrent.Key());
         }
 
         [Theory]
@@ -24,7 +24,7 @@ namespace SimpleMarsRoverKataCSharp.Tests
         {
             Direction.Direction rightFromCurrent = current.Right();
 
-            Assert.Equivalent(result, rightFromCurrent);
+            Assert.Equal(result.Key(), rightFromCurrent.Key());
 
         }
 
@@ -34,7 +34,8 @@ namespace SimpleMarsRoverKataCSharp.Tests
         {
             Coordinates resultOffset = direction.MovementOffset();
 
-            Assert.Equivalent(offset, resultOffset);
+            Assert.Equal(offset.GetY(), resultOffset.GetY());
+            Assert.Equal(offset.GetX(), resultOffset.GetX());
         }
 
     }

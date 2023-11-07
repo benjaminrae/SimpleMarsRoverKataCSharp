@@ -35,7 +35,8 @@ namespace SimpleMarsRoverKataCSharp.Tests
         {
             Coordinates combined = first.Combine(second);
 
-            Assert.Equivalent(combined, result);
+            Assert.Equal(combined.GetX(), result.GetX());
+            Assert.Equal(combined.GetY(), result.GetY());
         }
     }
 
