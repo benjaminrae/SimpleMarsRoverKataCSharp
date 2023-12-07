@@ -23,19 +23,16 @@
             if (step == 'L')
             {
                 this.TurnLeft();
-                this.Execute(command);
             }
 
             if (step == 'R')
             {
                 this.TurnRight();
-                this.Execute(command);
             }
 
             if (step == 'M')
             {
                 this.MoveForward();
-                this.Execute(command);
             }
 
             this.Execute(command);
